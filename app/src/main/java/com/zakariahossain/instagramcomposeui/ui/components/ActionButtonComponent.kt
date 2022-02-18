@@ -1,7 +1,6 @@
-package com.zakariahossain.instagramcomposeui.components
+package com.zakariahossain.instagramcomposeui.ui.components
 
 import androidx.compose.foundation.border
-import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon

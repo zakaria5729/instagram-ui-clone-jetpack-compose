@@ -1,32 +1,26 @@
 package com.zakariahossain.instagramcomposeui.ui
 
-import android.widget.Toast
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.*
-import androidx.compose.runtime.Composable
+import androidx.compose.material.Scaffold
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
-import com.zakariahossain.instagramcomposeui.R
-import com.zakariahossain.instagramcomposeui.components.ButtonSectionComponent
-import com.zakariahossain.instagramcomposeui.components.ProfileDescriptionComponent
-import com.zakariahossain.instagramcomposeui.components.ProfileSectionComponent
-import com.zakariahossain.instagramcomposeui.components.TopAppBarComponent
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.zakariahossain.instagramcomposeui.data_source.DataSource
+import com.zakariahossain.instagramcomposeui.ui.components.*
+import com.zakariahossain.instagramcomposeui.utils.Constants.gridCount
 
+@ExperimentalPagerApi
+@ExperimentalFoundationApi
 @Composable
 fun ProfileScreen() {
-    val context = LocalContext.current
+    val postWidth = LocalConfiguration.current.screenWidthDp.dp / gridCount
 
     Scaffold(
         topBar = {
-            TopAppBarComponent(
-                name = "zakaria5729",
-            )
+            TopAppBarComponent(name = "zakaria5729")
         },
         content = {
             Column(
@@ -35,10 +29,31 @@ fun ProfileScreen() {
                     .padding(bottom = 8.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                ProfileSectionComponent(modifier = Modifier.padding(top = 5.dp))
-                Spacer(modifier = Modifier.height(20.dp))
-                ButtonSectionComponent(modifier = Modifier.fillMaxWidth())
-                Spacer(modifier = Modifier.height(25.dp))
+                ProfileSectionComponent(
+                    modifier = Modifier.padding(top = 5.dp)
+                )
+                Spacer(
+                    modifier = Modifier.height(18.dp)
+                )
+                ButtonSectionComponent(
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Spacer(
+                    modifier = Modifier.height(18.dp)
+                )
+                HighlightSectionComponent(
+                    highlights = DataSource.getStoryHighlights(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                )
+                Spacer(
+                    modifier = Modifier.height(18.dp)
+                )
+                TabViewComponent(
+                    postWidth = postWidth,
+                    tabValues = DataSource.getTabValues()
+                )
             }
         }
     )

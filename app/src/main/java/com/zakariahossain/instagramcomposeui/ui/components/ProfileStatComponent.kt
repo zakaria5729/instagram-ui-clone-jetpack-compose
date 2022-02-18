@@ -1,4 +1,4 @@
-package com.zakariahossain.instagramcomposeui.components
+package com.zakariahossain.instagramcomposeui.ui.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
@@ -25,7 +25,7 @@ fun ProfileStatComponent(
             fontWeight = FontWeight.Bold,
             fontSize = 20.sp
         )
-        Spacer(modifier = modifier.height(4.dp))
+        Spacer(modifier = modifier.height(3.dp))
         Text(text = text)
     }
 }

@@ -1,4 +1,4 @@
-package com.zakariahossain.instagramcomposeui.components
+package com.zakariahossain.instagramcomposeui.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,14 +12,11 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.zakariahossain.instagramcomposeui.models.ProfileDescription
 
 @Composable
 fun ProfileDescriptionComponent(
-    displayName: String,
-    description: String,
-    followedBy: List<String>,
-    otherCount: Int,
-    url: String
+    profileDescription: ProfileDescription
 ) {
     val lineHeight = 18.sp
     val letterSpacing = 0.4.sp
@@ -30,26 +27,26 @@ fun ProfileDescriptionComponent(
             .padding(horizontal = 20.dp)
     ) {
         Text(
-            text = displayName,
+            text = profileDescription.displayName,
             fontWeight = FontWeight.Bold,
             letterSpacing = letterSpacing,
             lineHeight = lineHeight,
             fontSize = 18.sp
         )
         Text(
-            text = description,
+            text = profileDescription.description,
             letterSpacing = letterSpacing,
             lineHeight = lineHeight,
         )
         Text(
-            text = url,
+            text = profileDescription.url,
             color = Color(0xFF3D3D91),
             letterSpacing = letterSpacing,
             lineHeight = lineHeight,
             modifier = Modifier.padding(top = 3.dp)
         )
 
-        if(followedBy.isNotEmpty()) {
+        if(profileDescription.followedBy.isNotEmpty()) {
             Text(
                 text = buildAnnotatedString {
                     val boldStyle = SpanStyle(
@@ -57,20 +54,20 @@ fun ProfileDescriptionComponent(
                         fontWeight = FontWeight.Bold
                     )
                     append("Followed by ")
-                    followedBy.forEachIndexed { index, name ->
+                    profileDescription.followedBy.forEachIndexed { index, name ->
                         pushStyle(boldStyle)
                         append(name)
                         pop()
 
-                        if(index < followedBy.size - 1) {
+                        if(index < profileDescription.followedBy.size - 1) {
                             append(", ")
                         }
                     }
 
-                    if(otherCount > 2) {
+                    if(profileDescription.otherCount > 2) {
                         append(" and ")
                         pushStyle(boldStyle)
-                        append("$otherCount others")
+                        append("${profileDescription.otherCount} others")
                     }
                 },
                 letterSpacing = letterSpacing,

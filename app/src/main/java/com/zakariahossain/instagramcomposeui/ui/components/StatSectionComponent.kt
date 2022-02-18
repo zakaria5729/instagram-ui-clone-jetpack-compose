@@ -1,4 +1,4 @@
-package com.zakariahossain.instagramcomposeui.components
+package com.zakariahossain.instagramcomposeui.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

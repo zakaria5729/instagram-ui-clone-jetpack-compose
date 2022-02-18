@@ -9,10 +9,9 @@ object DataSource {
         return ProfileDescription(
             otherCount = 17,
             displayName = "Zakaria Hossain",
-            followedBy = listOf("Coding in flow", "Reso coder"),
-            url = "https://www.youtube.com/watch?v=Kw4_i4l5y4sf",
-            description = "Lorem Ipsum is simply dummy text of the printing and " +
-                    "typesetting industry.\nLorem Ipsum has been the industry's"
+            url = "https://github.com/zakaria5729",
+            followedBy = listOf("Asfaq Ar Rafi", "Shamim Iqbal", "Kaisar Ahmed", "Ashiqul Islam"),
+            description = "Software Engineer | Android | Flutter | Spring Boot"
         )
     }
 

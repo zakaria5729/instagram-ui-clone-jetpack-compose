@@ -30,7 +30,7 @@ fun ProfileScreen() {
                     .verticalScroll(rememberScrollState())
             ) {
                 ProfileSectionComponent(
-                    modifier = Modifier.padding(top = 5.dp)
+                    modifier = Modifier.padding(top = 3.dp)
                 )
                 Spacer(
                     modifier = Modifier.height(18.dp)

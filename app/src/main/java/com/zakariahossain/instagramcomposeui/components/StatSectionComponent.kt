@@ -7,7 +7,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun StatSection(
+fun StatSectionComponent(
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -15,8 +15,8 @@ fun StatSection(
         horizontalArrangement = Arrangement.SpaceAround,
         modifier = modifier
     ) {
-        ProfileStat(numberText = "601", text = "Posts")
-        ProfileStat(numberText = "100", text = "Followers")
-        ProfileStat(numberText = "72", text = "Following")
+        ProfileStatComponent(numberText = "601", text = "Posts")
+        ProfileStatComponent(numberText = "100", text = "Followers")
+        ProfileStatComponent(numberText = "72", text = "Following")
     }
 }

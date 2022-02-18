@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ProfileStat(
+fun ProfileStatComponent(
     numberText: String,
     text: String,
     modifier: Modifier = Modifier

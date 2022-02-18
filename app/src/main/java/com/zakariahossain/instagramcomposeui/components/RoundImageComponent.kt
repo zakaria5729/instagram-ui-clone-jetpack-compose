@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun RoundImage(
+fun RoundImageComponent(
     image: Painter,
     modifier: Modifier = Modifier
 ) {

@@ -19,11 +19,11 @@ import androidx.compose.material.*
 import androidx.compose.ui.platform.LocalContext
 
 @Composable
-fun TopBar(
+fun TopAppBarComponent(
     name: String,
     isNavigationIcon: Boolean = true,
     contentColor: Color = Color.Black,
-    actions: @Composable RowScope.() -> Unit = {},
+//    actions: @Composable RowScope.() -> Unit = {},
     backgroundColor: Color = MaterialTheme.colors.background,
 ) {
     val context = LocalContext.current
@@ -40,13 +40,48 @@ fun TopBar(
                     tint = Color.Black,
                     contentDescription = "backIcon",
                     modifier = Modifier.clickable {
-                        Toast.makeText(context, "No back action in navigation icon", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "No action in navigation icon", Toast.LENGTH_SHORT).show()
                     }
                 )
             }
         } else null,
-        actions = actions,
         backgroundColor = backgroundColor,
         contentColor = contentColor,
+        actions = {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_bell),
+                contentDescription = "Bell",
+                tint = Color.Black,
+                modifier = Modifier
+                    .size(20.dp)
+                    .clickable {
+                        Toast
+                            .makeText(
+                                context,
+                                "No back action in bell icon",
+                                Toast.LENGTH_SHORT
+                            )
+                            .show()
+                    }
+            )
+            Spacer(modifier = Modifier.padding(start = 8.dp))
+            Icon(
+                painter = painterResource(id = R.drawable.ic_dotmenu),
+                contentDescription = "Menu",
+                tint = Color.Black,
+                modifier = Modifier
+                    .size(16.dp)
+                    .clickable {
+                        Toast
+                            .makeText(
+                                context,
+                                "No back action in menu action",
+                                Toast.LENGTH_SHORT
+                            )
+                            .show()
+                    }
+            )
+            Spacer(modifier = Modifier.padding(start = 12.dp))
+        }
     )
 }

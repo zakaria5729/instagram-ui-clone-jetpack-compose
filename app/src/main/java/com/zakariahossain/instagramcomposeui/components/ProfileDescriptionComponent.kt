@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ProfileDescription(
+fun ProfileDescriptionComponent(
     displayName: String,
     description: String,
     followedBy: List<String>,
@@ -22,7 +22,7 @@ fun ProfileDescription(
     url: String
 ) {
     val lineHeight = 18.sp
-    val letterSpacing = 0.5.sp
+    val letterSpacing = 0.4.sp
 
     Column(
         modifier = Modifier
